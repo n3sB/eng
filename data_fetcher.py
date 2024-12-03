@@ -4,8 +4,9 @@ import config
 
 client = Client(config.API_KEY, config.API_SECRET)
 
-def fetch_historical_data(symbol, interval, lookback):
-    klines = client.get_historical_klines(symbol, interval, lookback)
+def fetch_historical_data(symbol, interval):
+    start_date = (datetime.now(timezone.utc) - timedelta(days=120)).strftime('%Y-%m-%d %H:%M:%S')
+    klines = client.get_historical_klines(symbol, interval, start_date)
     return klines
 
 def on_message(ws, message, process_candle):
