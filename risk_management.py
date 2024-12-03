@@ -1,5 +1,4 @@
 def check_risk(close, position, config):
-    """Check stop-loss and take-profit."""
     if position['in_position']:
         entry_price = position['buy_price']
         if close <= entry_price * (1 - config.STOP_LOSS_PERCENT):
