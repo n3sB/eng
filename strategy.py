@@ -1,7 +1,6 @@
 from indicators import calculate_rsi, calculate_macd
 
 def evaluate_strategy(symbol, closes, config, position):
-    """Evaluate trading signals."""
     rsi = calculate_rsi(closes, config.RSI_PERIOD)
     macd_hist = calculate_macd(closes)[2]
 
